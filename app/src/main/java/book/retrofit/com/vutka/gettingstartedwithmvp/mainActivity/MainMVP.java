@@ -22,6 +22,7 @@ public interface MainMVP {
      * Required View methods available to Presenter.
      * A passive layer, responsible to show data
      * and receive user interactions
+     * (presenter -> view )
      */
 
     interface RequiredViewOps{
@@ -29,6 +30,7 @@ public interface MainMVP {
         Context getActivityContext();
 
         void notifyItemInserted(int layoutPosition);
+        void notifyitemRemoved(int adapterPos);
         void notifyItemRangeChanged(int positionStat , int itemCount);
         void notifyDataSetChanged();
 
@@ -43,7 +45,7 @@ public interface MainMVP {
     /**
      * Operations offered to View to communicate with Presenter.
      * Process user interaction, sends data requests to Model, etc.
-     *      View to Presenter
+     * (view -> presenter)
      */
 
     interface ProvidedPresenterOps{
@@ -59,19 +61,29 @@ public interface MainMVP {
 
     /**
      * required Presenter operation available
-     * to model
+     * to model (model -> presenter)
      */
 
     interface RequiredPresenterOPS{
-
+        Context getAppContext();
+        Context getActivityContext();
     }
 
 
     /**
-     * Operation offered to model to
-     * communicate with  presenter
+     * Operations offered to model to communicate with presenter
+     * Handles all data business logic
+     * (presenter -> model )
      */
-    interface ProvidedModelOps{
 
+
+    interface ProvidedModelOps{
+        void onDestroy(boolean isChangingConfigurations);
+        int insertNote(Note note);
+        boolean loadData();
+        Note getNote(int position);
+        boolean deleteNote(Note note , int adapterPos);
+        int getNotesCount();
     }
+
 }

@@ -3,6 +3,8 @@ package book.retrofit.com.vutka.gettingstartedwithmvp.mainActivity.model;
 
 import android.content.ContentValues;
 
+import book.retrofit.com.vutka.gettingstartedwithmvp.mainActivity.data.DBschema;
+
 /**
  * Created by vutka bilai on 11/29/16.
  * mail : la4508@gmail.com
@@ -30,9 +32,12 @@ public class Note {
 
     public ContentValues getValues(){
         ContentValues cv = new ContentValues();
-        /*if ( id!=-1) cv.put(DBSchema.TB_NOTES.ID, id);
-        cv.put(DBSchema.TB_NOTES.NOTE, mText);
-        cv.put(DBSchema.TB_NOTES.DATE, mDate);*/
+        if ( id!=-1){
+            cv.put(DBschema.TB_NOTES.ID, id);
+            cv.put(DBschema.TB_NOTES.NOTE, mText);
+            cv.put(DBschema.TB_NOTES.DATE, mDate);
+        }
+
         return cv;
     }
 
