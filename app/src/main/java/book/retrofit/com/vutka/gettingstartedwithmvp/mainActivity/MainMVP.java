@@ -49,7 +49,7 @@ public interface MainMVP {
      */
 
     interface ProvidedPresenterOps{
-        void onDestroy(boolean inChnagingConfigurations);
+        void onDestroy(boolean isChnagingConfigurations);
         void setView(RequiredViewOps view);
         NotesViewHolder createViewHolder(ViewGroup parent , int viewType);
         void bindViewHolder(NotesViewHolder holder , int position);

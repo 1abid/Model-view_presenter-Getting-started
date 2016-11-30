@@ -46,18 +46,18 @@ public class MainPresenter implements MainMVP.ProvidedPresenterOps, MainMVP.Requ
     /**
      * Called by View every time it is destroyed.
      *
-     * @param inChnagingConfigurations true: is changing configuration
+     * @param isChnagingConfigurations true: is changing configuration
      *                                 and will be recreated
      */
     @Override
-    public void onDestroy(boolean inChnagingConfigurations) {
+    public void onDestroy(boolean isChnagingConfigurations) {
         //view should be null every time onDestroy is called
         mView = null;
         //infor model about the event
-        mModel.onDestroy(inChnagingConfigurations);
+        mModel.onDestroy(isChnagingConfigurations);
 
         //activity destroyed
-        if (!inChnagingConfigurations) {
+        if (!isChnagingConfigurations) {
             mModel = null;
         }
     }
@@ -96,7 +96,7 @@ public class MainPresenter implements MainMVP.ProvidedPresenterOps, MainMVP.Requ
      *
      * @param model Model instance
      */
-    private void setModel(MainMVP.ProvidedModelOps model) {
+    public void setModel(MainMVP.ProvidedModelOps model) {
 
         mModel = model;
 
