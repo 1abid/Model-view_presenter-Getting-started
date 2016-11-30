@@ -20,7 +20,7 @@ public class DAO {
     private Context mContext;
 
     //SELECTION
-    private static final String SELECT_ID_BASED = DBschema.TB_NOTES.ID + " = ? ";
+    private static final String SELECT_ID_BASED = DBschema.TB_NOTES.ID + " =? ";
     private static final String PROJECTION_ALL = " * ";
     private static final String SORT_ORDER_DEFAULT = DBschema.TB_NOTES.ID + " DESC";
 
@@ -99,11 +99,11 @@ public class DAO {
 
         Cursor c = db.query(DBschema.TABLE_NOTES,
                 null,
-                PROJECTION_ALL,
                 null,
                 null,
                 null,
-                SORT_ORDER_DEFAULT);
+                null,
+                null);
 
         if(c != null){
             c.moveToFirst();

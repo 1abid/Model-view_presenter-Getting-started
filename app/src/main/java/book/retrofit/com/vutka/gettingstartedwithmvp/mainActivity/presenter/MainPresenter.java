@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -119,6 +120,7 @@ public class MainPresenter implements MainMVP.ProvidedPresenterOps, MainMVP.Requ
                 protected Boolean doInBackground(Void... voids) {
 
                     //load data from model
+
                     return mModel.loadData();
                 }
 
@@ -193,6 +195,8 @@ public class MainPresenter implements MainMVP.ProvidedPresenterOps, MainMVP.Requ
     public void clickNewNote(EditText editText) {
         getView().showProgress();
         final String noteText = editText.getText().toString();
+
+
 
         if(!noteText.isEmpty()){
 
