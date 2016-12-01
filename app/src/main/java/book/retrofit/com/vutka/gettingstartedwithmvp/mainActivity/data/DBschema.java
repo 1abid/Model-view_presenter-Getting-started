@@ -49,7 +49,7 @@ public class DBschema extends SQLiteOpenHelper {
 
     private static final String CREATE_TABLE_NOTES =
             CREATE_TABLE + TABLE_NOTES + " ( " +
-                    TB_NOTES.ID + TYPE_INT + NOT_NULL + PRIMARY_KEY + COMMA_SPACE +
+                    TB_NOTES.ID + TYPE_INT + NOT_NULL + PRIMARY_KEY + AUTOINCREMENT + COMMA_SPACE +
                     TB_NOTES.NOTE + TYPE_DATE + NOT_NULL + COMMA_SPACE +
                     TB_NOTES.DATE + TYPE_TEXT + NOT_NULL +
                     ")";

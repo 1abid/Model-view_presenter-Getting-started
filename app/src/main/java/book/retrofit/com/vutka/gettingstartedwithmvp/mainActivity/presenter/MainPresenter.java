@@ -20,6 +20,7 @@ import java.util.Locale;
 import book.retrofit.com.vutka.gettingstartedwithmvp.R;
 import book.retrofit.com.vutka.gettingstartedwithmvp.mainActivity.MainMVP;
 import book.retrofit.com.vutka.gettingstartedwithmvp.mainActivity.model.Note;
+import book.retrofit.com.vutka.gettingstartedwithmvp.mainActivity.view.MainActivity;
 import book.retrofit.com.vutka.gettingstartedwithmvp.mainActivity.view.recycler.NotesViewHolder;
 
 /**
@@ -197,7 +198,6 @@ public class MainPresenter implements MainMVP.ProvidedPresenterOps, MainMVP.Requ
         final String noteText = editText.getText().toString();
 
 
-
         if(!noteText.isEmpty()){
 
             new AsyncTask<Void , Void , Integer>(){
@@ -354,7 +354,7 @@ public class MainPresenter implements MainMVP.ProvidedPresenterOps, MainMVP.Requ
      */
     public Note makeNote(String noteText) {
         Note note = new Note();
-        note.setText( noteText );
+        note.setText(noteText);
         note.setDate(getDate());
         return note;
 

@@ -30,13 +30,12 @@ public class Note {
         this.mDate = mDate;
     }
 
-    public ContentValues getValues(){
+    public ContentValues getValues() {
         ContentValues cv = new ContentValues();
-        if ( id!=-1){
-            cv.put(DBschema.TB_NOTES.ID, id);
-            cv.put(DBschema.TB_NOTES.NOTE, mText);
-            cv.put(DBschema.TB_NOTES.DATE, mDate);
-        }
+        if (id != -1) cv.put(DBschema.TB_NOTES.ID, id);
+        cv.put(DBschema.TB_NOTES.NOTE, mText);
+        cv.put(DBschema.TB_NOTES.DATE, mDate);
+
 
         return cv;
     }

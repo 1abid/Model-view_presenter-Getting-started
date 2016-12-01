@@ -80,6 +80,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Set the Presenter as a interface
             // To limit the communication with it
             mPresenter = presenter;
+        }else {
+            // Get the Presenter
+            mPresenter = mStateMaintainer.get(MainPresenter.class.getName());
+            // Updated the View in Presenter
+            mPresenter.setView(this);
         }
     }
 
@@ -119,7 +124,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public Context getActivityContext() {
         return this;
     }
-
 
 
     @Override

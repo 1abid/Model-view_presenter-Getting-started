@@ -4,6 +4,7 @@ package book.retrofit.com.vutka.gettingstartedwithmvp.mainActivity.data;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -45,6 +46,8 @@ public class DAO {
 
         long id = db.insert(DBschema.TABLE_NOTES , null , note.getValues());
 
+        Log.d(DAO.class.getSimpleName() , "inserted note ..."+id);
+
         Note insertedNote = getNote((int) id);
         db.close();
 
@@ -76,6 +79,7 @@ public class DAO {
                 null,
                 null);
         if(c != null){
+
             c.moveToFirst();
             Note note = new Note();
             note.setId(c.getInt(c.getColumnIndexOrThrow(DBschema.TB_NOTES.ID)));
